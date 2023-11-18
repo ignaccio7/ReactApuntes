@@ -1,0 +1,11 @@
+{
+  "name": "react_course",
+  "version": "1.0.0",
+  "description": "Curso de React midudev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nr",
+  "license": "MIT"
+}

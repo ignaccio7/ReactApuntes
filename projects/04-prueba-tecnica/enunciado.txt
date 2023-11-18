@@ -1,0 +1,60 @@
+--> uso de useState useEffect customHooks
+#Prueba tecnica
+
+- Facts Random: https://catfact.ninja/#/
+- Imagen random: https://cataas.com/
+
+Recupera un hecho aleatorio de gatos de la primera API y muestra una imagen 
+de un gato con las 3 primeras palabras del hecho recuperado usando la segunda API.
+
+-------------------------------------------------------------------------------
+--> si nos piden crear el punto de entrada
+pues inicializamos el proyecto ya no con react sino con vanilla
+asi 
+npm create vite@latest
+--> escogemos vanilla
+ahora instalamos el plugin de de react
+npm install @vitejs/plugin-react -E
+--> ahora instalamos 
+react --> biblioteca que tiene los useState useEffects etc
+react-dom --> que tiene los bindings con el navegador
+npm install react react-dom -E
+
+--> creamos el vite.config.js
+y añadimos todo el contenido que esta dentro
+
+--> el archivo index.html que es donde se renderizara todo nuestro contenido
+la extension main.js lo cambioamos por jsx ya que en vite 
+los archivos que son js no estan preparados para funcionar como jsx
+ya que sino no podran transpilar el codigo
+
+--> creamos la carpeta source
+creamos el archivo App.jsx
+importamos el archivo en main.jsx
+y colocamos que el componente App se renderice en el index
+
+
+--> ANALIZANDO EL PROBLEMA
+- Facts Random: https://catfact.ninja/#/
+fact = hecho
+GET --> https://catfact.ninja/fact 
+    random fact 
+    {
+        "fact": "string",
+        "length": 0
+    }
+- Imagen random: https://cataas.com/
+get image
+GET--> https://cataas.com/cat/says/hello%20chau%20adios
+
+-- ESTA DE AQUI ABAJO ES PARA OBTENER LA IMAGEN QUE NOS RESCATO CON EL ID de momento
+solo necesitamos la de arriba
+GET --> https://cataas.com/cat/says/hello?json=true
+    {
+        "tags":["black","long-cat"],"createdAt":"2016-04-13T14:22:29.197Z",
+        "updatedAt":"2022-10-11T07:52:32.194Z","mimetype":"image/jpeg",
+        "size":283010,"_id":"1AKMzDtX4nlk6w5I"
+    }
+
+
+

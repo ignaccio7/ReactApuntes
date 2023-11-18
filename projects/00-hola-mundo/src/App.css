@@ -1,0 +1,97 @@
+.tw-followCard{
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: .8rem;
+    justify-content: space-between;
+}
+
+.tw-followCard .tw-followCard-header{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tw-followCard .tw-followCard-header .tw-followCard-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.tw-followCard .tw-followCard-header .tw-followCard-infoUserName{
+    opacity: .5;
+}
+
+.tw-followCard .tw-followCard-avatar{
+    width: 48px;
+    height: 48px;
+    border-radius: 1000px;
+}
+
+.tw-followCard .tw-followCard-button{
+    margin-left: 16px;
+    border: 0;
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100px;
+}
+
+.tw-followCard .tw-followCard-button:hover{
+    background-color: #2e82f0;    
+    color: #fff;
+}
+
+/*Button Cards con state*/
+
+.tw-followCard .tw-followCard-button-follow{
+    margin-left: 16px;
+    border: 0;
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-weight: bold;
+    cursor: pointer;   
+}
+
+.tw-followCard .tw-followCard-button-follow:hover{
+    background-color: #2e82f0;    
+    color: #fff;
+}
+
+.tw-followCard .tw-followCard-button-followed{
+    margin-left: 16px;
+    border: 0;
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-weight: bold;
+    cursor: pointer;   
+    background-color: #2e82f0;    
+    color: #fff;
+}
+
+.tw-followCard .tw-followCard-button-followed:hover{
+    background-color: #c94e35;    
+    color: #fff;
+}
+/*/////*/
+.tw-followCard .tw-followCard-button-text-stop{
+    display: none;
+}
+.tw-followCard .tw-followCard-button-followed:hover .tw-followCard-button-text-stop{
+    display: block;
+}
+.tw-followCard .tw-followCard-button-followed:hover .tw-followCard-button-text{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+

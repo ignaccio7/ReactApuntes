@@ -1,0 +1,31 @@
+para crear un proyecto con react
+npm create vite@latest
+escogemos Javascript+SWC porque SWC es un transpilador de codigo escrito en RUST que es mucho mas rapido que el de Webpack
+
+los nombres de los componentes deben ser en PascalCase
+tenemos:
+PascalCase
+camelCase
+snake_case
+kebab-case
+
+hooks de react
+
+useState--> nos permite tener un estado en nuestro componente que al cambiar
+vuelve a renderizar el componente para renderizar los cambios para reflejar en la interfaz los cambios
+useEffect--> nos permite ejecutar codigo arbitrario cuando el componente se monta en el DOM
+y cada vez que cambian las dependencias que nosotros le digamos
+codigo arbitrario-->codigo que a ti te de la gana
+
+
+--> para hacer testing usaremos "playwright" que es parecido a cypress
+npm init playwright@latest
+haremos un test para saber que nos esta renderizando un texto y una imagen por lo menos
+y crearemos muestros tests en la carpeta tests que se creara cuando se instale
+
+--> el playwright utiliza requires pero nuestro proyecto utiliza ESModules
+asi que lo que tenemos que cambiar es playwright.config.cjs
+y cambiar los requires por imports
+
+para hacer correr 
+npx playwright test

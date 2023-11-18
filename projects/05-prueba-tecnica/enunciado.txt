@@ -1,0 +1,71 @@
+--> useMemo, useCallback y useRef
+
+## Enunciado
+Crear una aplicacion para buscar peliculas 
+
+Api a usar:
+-https://www.omdbapi.com/
+-API_KEY: 4287ad07
+
+Requerimientos
+
+- Necesita mostrar un input para buscar la pelicula y un boton para buscar
+- Lista las peliculas encontradas y muestra el titulo, año y poster
+- Haz que las peliculas se muestren en un grid responsive
+
+Primera interaccion
+
+- Evitar que se haga la misma busqueda dos veces seguidas // useRef
+- Ordena las peliculas alfabeticamente
+- Para mejorar el rendimiento usa useMemo y useCallback
+- Haz que la busqueda se haga automaticamente al escribir 
+- Evita que se haga la busqueda continuamente al escribir (debounce)
+
+
+--> para despreocuparnos de darle un poco estilos al css podemos usar paginas como
+https://watercss.kognise.dev/
+https://boltcss.com/
+
+de watercss
+lo que haremos es sacar la cdn y copiarlo a nuestro estilos propios
+https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css
+
+--> como primer consejo se puede empezar a revisar la api que tenemos que consumir
+y ver los datos que nos devuelve luego guardarlo esto en archivos para poder probar
+inicialmente con esos archivos con datos para luego recien probar con fetch
+ademas que cuando utilizamos sin hacer fetch el autocomplete de vscode nos ayuda
+
+--> nuevos hooks
+useRef 
+1. Te permite crear una referencia a un elemento del DOM //explicacion incompleta
+2. es un hook que te permite crear una referencia mutable que persiste durante todo el ciclo de vida de tu componente 
+y es util para guardar valores que van a mutar como un id o un elemento del DOM o lo que sea 
+y cada vez que cambia no vuelve a renderizar el componente como lo hace el useState
+
+
+// NOTA ALGO IMPORTANTE debounce
+- Evita que se haga la busqueda continuamente al escribir (debounce)
+para este punto haremos ayuda de una libreria externa
+podria aver un errror al react tener cacheada una busqueda anterior por ejemplo "avengers" y devuelve al final por x motivo tardo mas la peticion y nos renderiza "aveng"
+para evitar eso
+--> lodash debounce    o
+--> use debounce      o
+--> just debounce https://www.npmjs.com/package/just-debounce-it
+npm install just-debounce-it -E
+
+en la documentacion esta explicado pero mas o menos va asi
+
+const fn1 = debounce(() => console.log("Hello"), 500);
+fn1();
+fn1();
+fn1();
+// 500ms later logs 'hello' once
+// de esta menra solo se ejecutaria una vez el ultimo porque estaria esperando 500ms y reiniciaria las peticiones
+
+const fn2 = debounce(() => console.log("Hello"), 500, true);
+fn2(); // logs hello immediately
+fn2();
+fn2();
+// 500ms later logs 'hello' once
+// de esta manera le decimos que le entregue la primera al usuario para que tenga algo y luego ya esperar a la ultima
+asi hay mas y podriamos revisar
