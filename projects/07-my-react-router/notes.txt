@@ -1,0 +1,34 @@
+para estilar en este momento lo haremos no con 
+boltcss o con watercss
+
+sera con simplecss
+https://simplecss.org/demo
+https://github.com/kevquirk/simple.css/wiki/Getting-Started-With-Simple.css
+<link rel="stylesheet" href="https://unpkg.com/simpledotcss/simple.min.css">
+
+- [x] Instalar linter
+- [x] Crear una forma de hacer MPAs (Multiple Page Application) -> que mas o menos seria el renderizado condicional que manejamos a un principio -> si vamos a network cuando cambiamos entre paginas podremos ver que se esta descargando toda la pagina en si todos los recursos y demas
+- [x] Crear un forma de hacer SPAs (Single Page Application)
+- [x] Poder navegar entre páginas con el boton atras
+- [x] Crear componente Link para hacerlo declarativo
+- [x] Crear componente Router para hacerlo mas declarativo
+- [x] Soportar rutas por defecto (404)
+- [x] Soportar rutas con parámetros // vamos a instalar una dependencia para facilitarnos que es lo que se podria decir que todos usan -> npm install path-to-regexp -E  (que tambien esto es lo que usa express)
+- [x] Componente <Route /> para hacerlo mas declarativo
+- [x] Lazy Loading de las rutas -> con import { lazy } from 'react' que nos ayudara a importar de forma dinamica los componentes y hasta que no lo veamos no se descarga el contenido
+una forma de poder ver antes de usar Lazy es ir a la consola apretar la tecla Esc y luego en lso 3 puntitos a Search o Coverage y ver todo lo que nos esta cargando el sitios
+- [x] Testing
+npm install vitest -D
+ahora en el package.json en los scripts "test":"vitest"
+como hacemos test para el Router y este deberia renderizar para poder probarlo
+happy-dom -> para simular que tenemos un arbol de elementos similar al dom
+y @testing-library/react -> es una dependencia seria de utilidades que te permite renderizar algo y preguntar si existe el boton el componente hacer click esas cosas
+
+npm install happy-dom @testing-library/react -D
+
+y en el vite.config.ts
+  test: {
+    environment: 'happy-dom'
+  }
+
+- [x] Publicar el paquete en NPM

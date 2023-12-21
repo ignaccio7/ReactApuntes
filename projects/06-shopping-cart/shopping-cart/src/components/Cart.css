@@ -1,0 +1,64 @@
+.btnCart {    
+    background: rgb(58, 173, 249);
+    display: inline-block;
+    padding: .5rem;
+    position: fixed;
+    transform: scale(1.5);
+    border-radius: 50%;
+    cursor: pointer;
+    top: 2rem;
+    right: 2rem;
+    z-index: 100;
+}
+.btnCart:hover{
+    background: rgb(0, 149, 249);
+    color: white;
+}
+.cart{
+    background-color: rgb(31, 31, 31);
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 20rem;
+    min-height: 100vh;
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    z-index: 99;
+    display: none;
+}
+
+.cart ul{
+    list-style: none;
+    margin: 0;    
+    padding: 0;
+}
+.cart li{
+ padding-bottom: 1rem;
+ margin-bottom: 1rem;
+ border-bottom: 1px solid rgb(179, 179, 179);
+}
+.cart button{
+    background-color: rgb(20, 20, 20);    
+    border-color: rgb(179, 179, 179);
+    color: white;    
+    display: inline-block;    
+    border-radius: .5rem;
+    cursor: pointer;
+    padding: .5rem;
+}
+.cart button:hover{
+    background-color: white;
+    color: black;
+}
+.cart__quantity{        
+    font-size: 1rem;    
+}
+.cart__remove{
+    margin-top: .7rem;
+    transform: scale(1.2);
+}
+
+.btnCart ~ input:checked ~ .cart{
+    display: block;
+}

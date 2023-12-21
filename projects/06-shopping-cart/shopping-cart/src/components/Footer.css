@@ -1,0 +1,14 @@
+footer{    
+    position: fixed;
+    bottom: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    color: rgb(179, 179, 179);
+    background-color: rgb(0 0 0 / .8);
+}
+h3,p{
+    margin: 0;    
+}
+a{
+    color: rgb(66, 150, 218);
+}

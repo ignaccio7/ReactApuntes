@@ -1,0 +1,35 @@
+
+1. Ecommerce
+
+- Muestra una lista de productos que vienen de un JSON
+- Añade un filtro por categoria
+- Añade un filtro por precio
+
+Haz uso de useContext para evitar pasar props innecesarias
+
+2. Shopping Cart
+
+- Haz que se puedan añadir los productos a un carrito.
+- Haz que se puedan eliminar los productos de un carrito
+- Haz que se puedan modificar la cantidad de productos del carrito
+- Sincroniza los cambios del carrito con la lista de productos
+- Guarda en un localStorage el carrito para que se recupere al recuperar la pagina
+
+
+
+hooks a utilizar
+useContext --> que nos sirve para crear un estado global que no siempre podria ser un estado
+pero basicamente nos ayuda para esto crear un estado del cual nosotros tenemos que proveer a que 
+parte especifica de los componentes tendren acceso a este
+
+
+useReduder --> Nos permite manejar el estado de una manera escalable
+porque se basa en recibir en una funcion el estado actual y la accion que tiene que hacer
+y a partir de eso te devuelve el nuevo estado y esto esta completamente separador del provider y del componente y del customHook
+
+esto nos servira para separar la logica de actulizar la logica de actualizar el estado fuera del componente
+lo veremos en cart.jsx en el context
+nos servira incluso para poder comprobar haciendo test sin necesidad de renderizar nada
+cuando usar .> cuando tenemos multiples useStates que demuestra que nuestro estado esta fragmentado
+o cuando tenemos un input y cambiamos el input y un flag y asi de eso podriamos en lugar de hacerlo fragmentado
+que en el reducer cambiar lo que nosotros necesitemos

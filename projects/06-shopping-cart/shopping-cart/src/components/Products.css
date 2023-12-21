@@ -1,0 +1,55 @@
+.products{    
+    width: 100%; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 2rem;
+}
+
+.products__card{
+    background-color: rgb(30, 30, 30);
+    border-radius: .5rem;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.products__content{
+    padding: 1rem;
+}
+
+.products__frame{
+    height: 200px;
+    overflow: hidden;
+}
+
+.products__frame > img{
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+}
+
+.products__title{
+    margin: 0;
+    font-weight: 900;
+}
+.products__price{
+    font-size: 2rem;
+    display: block;
+}
+.products__price::after{
+    content:'Bs';
+}
+.products__button{
+    margin: 1rem;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    border-color: white;    
+    border-radius: .5rem;
+    transform: scale(1.5);
+    cursor: pointer;
+}
+.products__button:hover{
+    background-color: rgb(10, 10, 10);
+}

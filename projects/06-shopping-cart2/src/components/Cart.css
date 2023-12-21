@@ -1,0 +1,43 @@
+.cart_button{
+    position: fixed;    
+    background-color: rgb(9, 77, 119);
+    color: white;
+    padding: 1rem;
+    border-radius: 50%;
+    right: 1rem;
+    cursor: pointer;
+    z-index: 90;
+}
+.cart{
+    position: fixed;
+    max-width: 300px;
+    min-height: 100vh;
+    background-color: rgb(42, 42, 42);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0rem 3rem;
+    z-index: 80;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: all ease .5s;
+}
+.cart_products{
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+.cart_button ~ input[type="checkbox"]:checked ~ .cart {
+    transform: translateX(0);
+}
+.cart_button-clear{
+    margin: 1rem 0;
+}
+
+.cart_product{
+    width: 90%;
+    margin-inline: auto;
+    border: 1px solid blanchedalmond;
+    padding: 10px;
+    border-radius: 3rem;
+}
