@@ -32,3 +32,81 @@ y en el vite.config.ts
   }
 
 - [x] Publicar el paquete en NPM
+
+para poder Publicar
+añadimos un script en el packagejson que diga
+  "prepare": "",
+y necesitamos un compilador para que transpile nuestro codigo
+para eso instalaremos SWC que es una alternativa a Babel
+y asi instalamos  
+https://swc.rs/docs/getting-started
+https://swc.rs/docs/configuration/swcrc
+
+  npm i -D @swc/cli @swc/core
+
+y luego creamos un archivo .swcrc
+en el cual copiaremos las configuraciones que tiene por defecto
+y un poco revisando target colocamos la etiqueta en jsx true en loose true que lo que hara es hacer unas transformaciones con codigo mas eficiente pero que no comlua 100% la especificacion
+
+y luego
+  ./node_modules/.bin/swc ./src/Router.jsx
+y podremos ver que si nos ah compilador correctamente
+
+en el archivo .swcrc
+cuando compile react podremos ver que alfinal nos dice ReacCreateElemento pero nosotros lo queremos como jsx asi que
+añadimos
+"transform": {
+        "react": {
+            "runtime": "automatic"
+        }
+    },
+
+y ya para que compile todos los archivos que necesitamos
+
+  ./node_modules/.bin/swc ./src/*.jsx -d lib
+
+y para de mejor manera ponerlo como un scrpt en el package.json colocamos
+ "prepare": "swc ./src/*.jsx -d lib",
+-> prepare es un script especial que se va ejecutar justo antes que hagamos un publish
+tambien añadimos en el package 
+  "version":"0.0.1",
+  "main":"lib/index.js",
+  "module": "lib/index.js",
+y quitamos el "private": true,
+
+-> para que funcion el index.js como punto de entra creamos en el src
+el archivo index.jsx y exportamos el Router  el Link el Route y copiamos las constantes con el comando de mas abajo
+
+podemos ejecutar para visualizar que esta haciendo
+  npm run prepare
+
+como paso adicional borraremos los archivos que no necesitamos y modificamos el 
+  "prepare":"swc ./src/*.jsx -d lib && rm lib/App.js lib/main.js lib/Router.test.js && cp src/*.js lib"
+
+una ultima cosa es colocar en el packagejson las dependencias 
+que necesitamos que tenga instalado nuestro proyecto
+asi 
+
+"peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+  },
+
+peerDependencies significa que no los vamos a instalar nosotros sino que el proyecto ya deberia tener instalado
+
+por ultimo ultimo
+creamos un fichero
+.npmignore
+  src
+
+para que ignore la carpeta source
+
+lo ultimo que arreglamos es -> "prepare":"swc ./src/*.jsx -d lib && cp src/*.js lib",
+
+y ya colocamos
+  ./node_modules/.bin/swc ./src/*.jsx -d lib // -> este si
+  npm run prepare //-> esto se ejecuta por defecto al hacer publish asi que no en la consola
+  npm publish //-> este tambien
+
+
+

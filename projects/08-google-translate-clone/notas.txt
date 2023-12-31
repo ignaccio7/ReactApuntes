@@ -1,0 +1,41 @@
+instalaremos eslint
+
+npx eslint --init
+-> to check syntax and enforce code style
+-> javascript modules
+-> React
+-> TypeScript
+-> popular
+-> standar
+
+en este proyecto usaremos React Bootstrap
+https://react-bootstrap.netlify.app/
+https://react-bootstrap.netlify.app/docs/getting-started/introduction
+
+-> npm install react-bootstrap bootstrap -E
+
+y luego copiamos 
+-> import 'bootstrap/dist/css/bootstrap.min.css';
+
+los iconos los sacamos de tablericons.io
+
+la traduccion se realizo buscando una api de traduccion en rapidapi que fue texttranslator
+
+lo interesante fue hacer el debounce propio para hacer la traduccion
+
+para el tema del testing instalamos vitest
+
+npm install vitest happy-dom @testing-library/react @testing-library/user-event -D
+
+vitest -> para hacer pruebas unitarias
+happy dom -> para simular un dom
+@testing-library/react -> para que nos de utilidades de los componentes de react
+@testing-library/user-event -> para simular un usuario como si este estuviera tecleando o interactuando con la app
+
+luego de instalar en el vite.config.ts añadimos
+test:{
+    environment:'happy-dom'
+  }
+
+y como usaremos TypeScript añadimos en la parte superior 
+/// <reference types="vitest" />
