@@ -1,0 +1,76 @@
+En este proyecto usaremos una libreria que tiene una coleccion de componentes que es tremor
+
+https://www.tremor.so/docs/getting-started/installation
+
+por detras esta libreria tiene tailwindcss
+install y add cumplen la misma funcion
+-> pnpm install @tremor/react -E
+-> pnpm add -D tailwindcss postcss autoprefixer 
+-> npx tailwindcss init -p
+
+ahora en tailwind.config.js
+le indicamos los ficheros que tiene que mirar
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+
+    // Path to the Tremor module
+    "./node_modules/@tremor/**/*.{js,ts,jsx,tsx}",
+  ],
+
+y en el index.css
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+Tambien usaremos los iconos de heroicons
+
+https://heroicons.com/
+
+
+para instalar REDUX
+usermos redux toolkit
+https://redux-toolkit.js.org/introduction/getting-started
+-> npm install @reduxjs/toolkit -E
+-> npm install react-redux -E
+
+dentro de redux vamos a tener una store que podriamos asimilarlo a una caja
+donde tendremos a los estados que vamos a consumir en nuestra aplicacion que estamsos
+proveendo en el main.tsx y como podriamos tener mas de 1 estado que vamos a proveer
+pues lo podriamos separar en trozos o slice que nos ayudara a organizar de mejor manera
+
+
+nota -> para ver como realmente deberiamos organizar nuestro proyecto
+deberiamos anteponer la logica del negocio por delante y luego por detras lo que usas las tecnologias
+como ser user->component|hooks|store
+para tener una mejor organizacion del codigo
+pero no colocar store->hooks|user|products|...
+
+para ver mejor screamming architecture -> porque estas gritando tu negocio ghaha
+
+-> una cosa importante en este proyecto es los MIDDLEWARES
+que lo usaremos para que nuestro proyecto tenga persistencia
+basicamente MIDDLEWARES es algo que se ejecuta en medio de algo es como un proxy
+
+nos permitira capturar cada vez que se haga un dispatch ver que esta haciendo
+poder esperar a que termine eso luego una vez que tenga el nuevo estado hacer algo tambien con eso
+
+
+NOTA-> DIFERENCIA ENTRE REDUX Y CONTEXT
+
+REDUX: es para gestionar estados globales - de echo redux usa por detras immer  -> que son actualizaciones inmutables que puedes hacer 
+-> este immer viene con un coste pero lo podriamos ver en bundlephobia lo que ocupa immer , redux, reduxtoolkit
+CONTEXT: en context tambien se puede hacer pero este esta mas pensado para tener accesible desde cualquier parte del arbol de elementos de react cierta informacion
+
+
+posterior a eso instalaremos una dependencia que es sonner
+que es una dependencia que nos servira para mostrar notificaciones
+
+https://sonner.emilkowal.ski/
+-> npm install sonner -E 
+teniamos problemas con installar sonner asi que usaremos 
+
+https://react-hot-toast.com/
+-> pnpm install react-hot-toast
+
+
