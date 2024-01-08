@@ -1,0 +1,8 @@
+la api a usar es
+https://randomuser.me/documentation
+la api es
+https://randomuser.me/api?results=100
+
+para sacar los typos de un json a typescript
+https://quicktype.io/typescript
+
