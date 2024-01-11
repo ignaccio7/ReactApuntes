@@ -1,0 +1,30 @@
+la api a usar es
+https://randomuser.me/documentation
+la api es
+https://randomuser.me/api?results=100
+
+para sacar los typos de un json a typescript
+https://quicktype.io/typescript
+
+aqui usaremos tanstackQuery como reactQuery
+https://tanstack.com/query/latest/docs/react/overview
+basicamente nos ayuda a manejar estados asincronos
+
+npm i @tanstack/react-query -E
+
+arreglando reactQuery v4 to v5
+https://tanstack.com/query/v5/docs/react/guides/infinite-queries
+
+otra cosa interesante que tiene es las developers tools
+
+npm install @tanstack/react-query-devtools -E
+que esto nos ayudara a poder ver las peticiones que esta haciendo
+la key que esta viendo y los diferentes estados con unas herramientas de desarrollo que podremos acceder a travez del icono que nos saldra en la parte inferior de la pantalla
+basicamente los estados que podremos ver 
+-> fresh : cuando los datos esten por asi decirse frescos
+   fetching: cuando se este haciendo la peticion para traer informacion
+   stale: cuando se podria decir que reactquery asume que ya los datos son antiguos y quisiera intentar hacer un fetching para traer nuevos
+    algo asi como cuando cambiamos entre pestañas y cuando volvemos hace el fetch nuevamente pero eso lo podemos desactivar
+-> asi tambien otra cosa esque podriamos forzar acciones como hacer un refetch, forzar un error, resetear , etc
+nota: cuando ocurre un error react query tiene un retry que lo que hace es que cuando una peticion falla pues lo que hace es volver a intentar para volver a intentarlo
+eso tambien se puede configurar
