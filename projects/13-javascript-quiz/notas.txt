@@ -1,0 +1,13 @@
+Aqui usaremos materialUI MUI
+https://mui.com/material-ui/getting-started/installation/
+
+npm install @mui/material @emotion/react @emotion/styled
+npm install @fontsource/roboto @mui/icons-material
+
+para isntalar zustand
+npm install zustand -E
+
+usaremos reactsyntaxhighter para mostrar el codigo
+npm install react-syntax-highlighter -E
+si estamos usando TS entonces dara error porque este paquete no tiene los tipos por defecto
+npm i --save-dev @types/react-syntax-highlighter
