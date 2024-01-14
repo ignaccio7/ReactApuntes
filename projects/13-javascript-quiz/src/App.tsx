@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Container, Stack, Typography } from '@mui/material'
 import './App.css'
 import { LogoJavaScript } from './components/Logos'

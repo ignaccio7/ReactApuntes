@@ -11,3 +11,9 @@ usaremos reactsyntaxhighter para mostrar el codigo
 npm install react-syntax-highlighter -E
 si estamos usando TS entonces dara error porque este paquete no tiene los tipos por defecto
 npm i --save-dev @types/react-syntax-highlighter
+
+
+para instalar canvas confetti
+npm install canvas-confetti -E
+como necesitamos los tipos
+npm i --save-dev @types/canvas-confetti
