@@ -1,0 +1,5 @@
+para instalar react router
+react router solo tiene el core de la biblioteca
+react-router-dom tiene los buildings para trabajar con el navegador manejar el history esas cosas
+
+npm install react-router-dom -E
