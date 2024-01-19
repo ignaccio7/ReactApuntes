@@ -13,6 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.is-active{
+  font-weight: bold;
+  pointer-events: none;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

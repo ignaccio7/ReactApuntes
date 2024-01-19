@@ -1,5 +1,7 @@
 import './App.css'
-import { Route, Routes, Link, useParams, Outlet } from 'react-router-dom'
+import { Route, Routes, Link, useParams, Outlet, Navigate, useNavigate, useLocation } from 'react-router-dom'
+import { NavLink } from './NavLink'
+import { useAuth } from './useAuth'
 
 const Home = () => <h2>Home</h2>
 
@@ -16,7 +18,7 @@ const SearchPage = () => {
       <ul>
         {tacos.map(taco => {
           return (
-            <li><Link key={taco} to={`/tacos/${taco}`}> {taco} </Link></li>
+            <li key={taco}><Link to={`/tacos/${taco}`}> {taco} </Link></li>
           )
         })}
       </ul>
@@ -45,6 +47,64 @@ const TacoDetails = () => {
   )
 }
 
+const TacoIndex = () => {
+  return (
+    <h3>Componente que solo aparece en el indice de la pagina</h3>
+  )
+}
+
+const Login = () => {
+    /*const { login } = useAuth()
+    const navigate = useNavigate()
+
+    const handleLogin = ()=>{
+        login()
+        navigate('/search')
+    }
+
+    return(
+        <>
+            <h2>Login</h2>
+            <button onClick={handleLogin}>Logearse</button>
+        </>
+    )*/
+    const { login } = useAuth()
+    const navigate = useNavigate()
+    const location = useLocation()
+
+    // aqui ya tendriamos la ruta que el usuario intento ir anteriormente si esque lo hizo
+    console.log(location.state); 
+
+    const handleLogin = ()=>{
+        login()
+        const nextPath = location.state ? location.state.location.pathname : '/search'
+        navigate(nextPath)
+    }
+
+    return(
+        <>
+            <h2>Login</h2>
+            <button onClick={handleLogin}>Logearse</button>
+        </>
+    )
+}
+//para proteger una ruta
+const ProtectedRoute = ({ children }) => {
+  /*const { isAuthenticated } = useAuth()
+  if (!isAuthenticated) {
+    return <Navigate to='/login' />
+  }
+  return children*/
+  // si quisieramos lograr que nos rediriga a la pagina que hubieramos intentado ir anteriormente que nos pedia hacer login
+  const { isAuthenticated } = useAuth()
+  const location = useLocation() // tiene informacion de donde esta el usuario en ese momento
+  if (!isAuthenticated) {
+    return <Navigate to='/login' state={{ location }} />
+  }
+  return children
+
+}
+
 function App() {
 
   return (
@@ -53,16 +113,27 @@ function App() {
         <h1>ReacRouter</h1>
         <nav>
           <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/search">Search Page</Link></li>
+            <li><NavLink to='/'>Home</NavLink></li>
+            <li><NavLink to="/search">Search Page</NavLink></li>
+            <li><NavLink to="/login">Login</NavLink></li>
           </ul>
         </nav>
       </header>
       <Routes>
         {/* se le debe pasar el elemento y no asi el componente el componente en este caso seria Home y elemento <Home/> */}
         <Route path='/' element={<Home />} />
-        <Route path='/search' element={<SearchPage />} />
-        <Route path='/tacos/:name' element={<Tacos />}>        
+        <Route path='/login' element={<Login />} />
+        <Route path='/search' element={
+            <ProtectedRoute>
+                <SearchPage />
+            </ProtectedRoute>
+        } />
+        <Route path='/tacos/:name' element={
+            <ProtectedRoute>
+                <Tacos />
+            </ProtectedRoute>
+        }>          
+          <Route index element={<TacoIndex/>} /> {/* en este caso solo cuando estemos por ejemplo /tacos/nombredeuntaco */}
           <Route path='details' element={<TacoDetails/>}/>        
         </Route>
         <Route path='*' element={<h1>Not found 404</h1>}/>
