@@ -1,0 +1,271 @@
+/* HEADER */
+.header{    
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+  padding-inline: 1rem;
+}
+.layer{
+  width: 2rem;
+  height: 2rem;
+  overflow: hidden;    
+  cursor: pointer;
+}
+
+/* TITLE */
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(0, 176, 182);
+}
+
+span {
+  color: rgb(99, 141, 37);
+  font-weight: bold;
+}
+
+/* SPLASHSCREEN */
+
+.splashscreen{
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;      
+  justify-content: center;
+  align-items: center;
+}
+
+/* MOVEMENTS */
+
+.title {
+  font-weight: bold;
+  color: rgb(0, 176, 182);
+  font-size: 1.5rem;
+  padding-left: 1rem;
+}
+
+.movements-list {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  background-color: white;
+}
+
+/* MOVEMENTS */
+
+.movement {
+  display: flex;
+  justify-content: space-between;
+  padding-block: .5rem;
+  background-color: rgb(102 207 211 / .1);
+  border-radius: 1rem;
+  padding-inline: 1rem;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  max-width: calc(100% - 11ch);
+}
+
+h3 {
+  font-weight: bold;
+  color:rgb(84, 84, 84);
+  margin: 0;
+}
+
+.content p {
+  width: inherit;
+  word-wrap: break-word;
+  color:rgb(84, 84, 84);
+  margin: 0;
+  padding: 0;
+}
+
+.action {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  width: 11ch;
+  overflow: hidden;
+}
+
+.action p {
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+/* Resume */
+
+.resumec {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: calc(100vh * 0.15);
+}
+
+.resumec header {
+  line-height: 1;
+}
+
+.resumec p {
+  color: rgb(143, 143, 143);
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.resumec h1 {
+  text-align: center;
+  font-weight: bold;
+  color: rgb(99, 141, 37);
+  font-size: 2.2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.resumec .graphic {
+  padding-inline: 2rem;
+  flex-grow: 1;
+}
+
+/* h1::before {
+  content: 'Bs ';
+} */
+
+/* BUTTON */
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  margin-inline: auto;
+  padding: 1rem;
+  font-size: 1rem;
+  border-radius: 2rem;
+  border: none;
+  color: white;
+  background-color: rgb(55, 55, 55);
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: rgb(82, 82, 82);
+}
+
+/* MODAL */
+
+.modal {
+  position: absolute;
+  inset: 0;
+  background-color: white;
+  z-index: 20;
+  padding: 1rem;
+}
+
+.modal header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal h2 {
+  font-weight: 700;
+  color: rgb(67, 67, 67);
+  letter-spacing: -1px;
+  margin: 0;
+  padding: 0;
+}
+
+.modal a {
+  display: inherit;
+}
+
+.modal .body {
+  padding-block: 1rem;
+}
+
+/* FORM */
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form .field {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+form input,
+form textarea {
+  padding: .5rem;
+  margin-block: .5rem;
+  border: thin solid black;
+  border-radius: .5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1rem;
+  background-color: white;
+  color: black;
+}
+
+form input[type="number"] {
+  text-align: right;
+}
+
+form input[type="radio"] {
+  display: none;
+}
+
+form .field--radio span {
+  display: flex;
+  gap: .5rem;
+  margin-block: .5rem;
+  font-weight: 500;
+  color: black;
+}
+
+form .field--radio span::before {
+  content: "";
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+form input[type="radio"]:checked+span::before {
+  background-color: rgb(86, 121, 33);
+  box-shadow: 0 0 10px #719ECE;
+  border: none;
+}
+
+input:focus,
+form textarea:focus {
+  outline: none !important;
+  border-color: rgb(68, 96, 26);
+  box-shadow: 0 0 10px #87ce71;
+}
+form label{
+  color: black;
+}
