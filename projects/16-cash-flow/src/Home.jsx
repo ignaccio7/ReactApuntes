@@ -4,115 +4,52 @@ import Movements from "./components/movements";
 import Resume from "./components/resume";
 import { ModalContext } from "./context/modal";
 import Modal from "./components/modal";
+import { useMovements } from "./hooks/useMovements";
 
 export default function Home() {
-
-  const { showModal } = useContext(ModalContext)
+  const { showModal } = useContext(ModalContext);
 
   const [showMovements, setShowMovements] = useState(false);
 
-  const [movements, setMovements] = useState([
-    {
-      id: "1",
-      title: "Compra en tienda",
-      description: "Ropa",
-      amount: -50.75,
-      time: new Date("01-01-2024"),
-    }, // de momento este no entra porque no esta entre el rango de fechas
-    {
-      id: "2",
-      title: "Depósito",
-      description: "Ingreso de salario",
-      amount: 350.0,
-      time: new Date("01-15-2024"),
-    },
-    {
-      id: "3",
-      title: "Retiro en cajero",
-      description: "Retiro de efectivo",
-      amount: -100.0,
-      time: new Date("01-15-2024"),
-    },
-    {
-      id: "4",
-      title: "Pago de factura",
-      description: "Electricidad",
-      amount: -50.5,
-      time: new Date("01-23-2024"),
-    },
-    {
-      id: "5",
-      title: "Transferencia",
-      description: "Pago a amigo",
-      amount: -200.0,
-      time: new Date("01-25-2024"),
-    },
-    {
-      id: "6",
-      title: "Compra en línea",
-      description: "Libros",
-      amount: -45.99,
-      time: new Date("02-03-2024"),
-    },
-    {
-      id: "7",
-      title: "Ingreso adicional",
-      description: "Bonificación",
-      amount: 200.0,
-      time: new Date("02-08-2024"),
-    },
-    {
-      id: "8",
-      title: "Pago de préstamo",
-      description: "Cuota mensual",
-      amount: -75.0,
-      time: new Date("02-10-2024"),
-    },
-    {
-      id: "9",
-      title: "Compra de alimentos",
-      description: "Supermercado",
-      amount: -65.25,
-      time: new Date("02-11-2024"),
-    },
-    {
-      id: "10",
-      title: "Ingreso de reembolso",
-      description: "Gastos médicos",
-      amount: 50.0,
-      time: new Date("02-12-2024"),
-    },
-    // { id: 11, title: 'Ingreso de reembolso', description: 'Gastos vGastGastosGastosGastosGastosGastosGastosGastosGastosGastosGastosGastosGastos mé', amount: 1000.0 }
-  ]);
+  const { movements, totalAmount, deleteMovement, createMovement } =
+    useMovements();
 
-  const [totalAmount, setTotalAmount] = useState(0)
+  const [amounts, setAmounts] = useState([]);
 
-  const deleteMovement = ({ id }) => {
-    const newMovementes = movements.filter((movement) => movement.id !== id);
-    setMovements(newMovementes);
-  };
+  useEffect(() => {
+    // console.log(movements);
+    // return movements.map(mov=>mov.amount)
 
-  const createMovement = ({ title, description, amount }) => {
-    const newMovement = {
-      title,
-      description,
-      amount,
-      id: crypto.randomUUID(),
-      time: new Date(),
-    };
-    const newMovements = structuredClone(movements);
-    newMovements.push(newMovement);
-    setMovements(newMovements);
-  };
+    // con esto obtenemos los movimientos de los ultimos 30 dias
+    const lastDays = movements
+      .filter((movement) => {
+        // sacamos la fecha de hoy
+        const today = new Date();
+        // sacamos la fecha hace 30 dias atras -> con getDate obtenemos el numero del dia de la fecha
+        const oldDay = today.setDate(today.getDate() - 30);
+        return movement.time > oldDay;
+      })
+      .map((movement) => movement.amount);
 
-  useEffect(()=>{
-    let sum = 0
-    movements.forEach(movement => {
-      sum += movement.amount
+    // lo que tendria que pasar esque si nosotros tenemos un gasto el dia1 de -100 y dia2 de -200 entonces para la grafica debemos pasar como si el dia2 fuera -300
+    // asi tenemos que ir sumando los valores
+    const results = [];
+    lastDays.forEach((mov, index) => {
+      let sum = results[index - 1] || 0;
+      results[index] = mov + sum;
     });
-    sum = sum.toFixed(2)
-    setTotalAmount(sum)
-  },[movements])
+
+    setAmounts(results)
+
+  }, [movements]);
+
+  const [indiceAmount, setIndiceAmount] = useState()
+  const [amountLabel, setAmountLabel] = useState('')
+
+  const selectedDay = ({ indiceAmount, amountLabel }) => {
+    setIndiceAmount(indiceAmount)
+    setAmountLabel(amountLabel)
+  }
 
   return (
     <>
@@ -121,9 +58,7 @@ export default function Home() {
           <Header />
         </header>
         <main className="resume">
-          <div>
-            <Resume totalAmount={totalAmount}/>
-          </div>
+          <Resume totalAmount={totalAmount} amounts={amounts} indiceAmount={indiceAmount} amountlabel={amountLabel} selectedDay={selectedDay} movements={movements}/>
         </main>
         <section className={`movements ${showMovements ? "show" : ""}`}>
           <div

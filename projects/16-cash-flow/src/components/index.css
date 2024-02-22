@@ -64,7 +64,7 @@ span {
   width: 100%;
 }
 
-.content {
+.movement .content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -72,13 +72,13 @@ span {
   max-width: calc(100% - 11ch);
 }
 
-h3 {
+.movement h3 {
   font-weight: bold;
   color:rgb(84, 84, 84);
   margin: 0;
 }
 
-.content p {
+.movement .content p {
   width: inherit;
   word-wrap: break-word;
   color:rgb(84, 84, 84);
@@ -86,7 +86,7 @@ h3 {
   padding: 0;
 }
 
-.action {
+.movement .action {
   display: flex;
   flex-direction: column;
   align-items: end;
@@ -95,7 +95,7 @@ h3 {
   overflow: hidden;
 }
 
-.action p {
+.movement .action p {
   font-weight: 500;
   margin: 0;
   padding: 0;
@@ -145,6 +145,21 @@ h3 {
 .resumec .graphic {
   padding-inline: 2rem;
   flex-grow: 1;
+}
+
+.resumec .graphicsvg {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.resumec .graphicsvg svg {
+  width: 100%;
+}
+
+.resumec p {
+  text-align: center;
 }
 
 /* h1::before {
