@@ -6,7 +6,10 @@ on:
 
 jobs:
   hello_world:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Echo the message
         run: echo "Hola como estas.!"
+      - name: Dime la fecha
+        run: date
+      - run: ls -l
