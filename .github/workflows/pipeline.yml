@@ -1,0 +1,22 @@
+# Creamos este pipeline que basicamente asemeja a una tuberia por donde pasaran todos los procesos por los que fluye la aplicacion
+name: Deployment Pipeline
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+        - uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+        - uses: actions/setup-node@v4
+          with:
+            node-version: 18
+        - name: Install dependencies
+          run: cd projects/17-pokeapi-cicd && npm install
+        - name: Verify Lint
+          run: npm run lint
+          working-directory: projects/17-pokeapi-cicd
