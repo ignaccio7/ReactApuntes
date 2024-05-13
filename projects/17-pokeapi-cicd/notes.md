@@ -5,12 +5,16 @@ Con esto buscamos la automatizacion, verificacion de los cambios de codigo de va
 Ya que en un proyecto podriamos tener varios programadores y ellos trabajaran en alguna parte del proyecto y lo que buscamos es integrar en la pieza de software que queda y que se integre de la mejor manera correcta.
 Es continua porque es un progreso que no para. Ya que si digamos alguien haria una nueva caracteristica pues a partir de eso se hace la build el test notificaciones release que es un despliegue que puede ser un despliegue a produccion o desarrollo etc.
 
+> Los workflows deben estar en la carpeta raiz del repositorio ya que sino no los reconocera. Lo bueno esque puedes tener multiples workflows
+
 Los pasos podria ser
 1. Pasar el Lint
 2. Revisar los Commints correctamente
 3. Normativa de nombres
 4. Construir aplicacion
 5. etc
+
+
 
 # Para el proyecto usaremos linter eslint
 
