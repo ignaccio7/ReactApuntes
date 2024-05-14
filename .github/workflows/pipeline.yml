@@ -25,7 +25,7 @@ jobs:
           working-directory: projects/17-pokeapi-cicd
         - name: Start dev React project
           run: |
-            npm start &
+            npm run dev &
             npx wait-on http://localhost:5173/
           env:
             PORT: 5173
