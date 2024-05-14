@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
-      external: ['react/jsx-runtime']
+      input: 'src/main.jsx',
+      external: id => id.includes('14-react-router')
     }
   }
 })
