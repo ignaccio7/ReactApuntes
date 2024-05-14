@@ -16,7 +16,7 @@ jobs:
           with:
             node-version: 18
         - name: Install dependencies
-          run: cd projects/17-pokeapi-cicd && npm install --no-audit --no-fund --no-optional
+          run: cd projects/17-pokeapi-cicd && npm install
         - name: Verify Lint
           run: npm run lint
           working-directory: projects/17-pokeapi-cicd
