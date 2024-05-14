@@ -54,6 +54,8 @@ steps:
 - run: npm test
 ```
 
+> Los procesos pueden salir con codigos. Cuando es 0 esque ah ido bien. Sino es 0 algo fue mal
+
 # Para el proyecto usaremos linter eslint
 
 ```bash
