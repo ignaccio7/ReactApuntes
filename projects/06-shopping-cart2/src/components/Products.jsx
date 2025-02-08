@@ -2,6 +2,7 @@
 import { CardProduct } from "./CardProduct"
 
 export function Products({ products }) {
+    
     return (
         <div className="products">
             {

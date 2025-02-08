@@ -92,7 +92,7 @@ export function App() {
                 username="midudev"
                 name="Miguel Duran"
                 isFollowing
-                element=<span>elem</span>
+                element={<span>elem</span>}
             />
             <TwitterFollowCard
                 formatUserName={format}
